@@ -3,6 +3,11 @@
   enabled: true
   paths:
       - {{ .HostDir }}/{{ .File }}
+  multiline.pattern: '^\s*(\d{4}|\d{2})\-(\d{2}|[a-zA-Z]{3})\-(\d{2}|\d{4})'   #新增正则条件
+  multiline.negate: true                                             #新增
+  multiline.match: after                                             #新增
+  multiline.max_lines: 10000                                         #新增           
+  multiline.timeout: 15s                                             #新增      
   scan_frequency: 10s
   fields_under_root: true
   {{if .Stdout}}
